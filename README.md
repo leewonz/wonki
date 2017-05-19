@@ -5,9 +5,9 @@ WONKI: wonderful keeper for your impressions
 이름 지은사람 천재?
 
 
-## SETing mysql db
+## Getting started
 
-users table
+**create users table**
 ```
 CREATE TABLE users ( 
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, 
@@ -17,4 +17,28 @@ CREATE TABLE users (
     UNIQUE INDEX `id_UNIQUE` (`id` ASC), 
     UNIQUE INDEX `username_UNIQUE` (`username` ASC) 
 );
+```
+
+**add config files**
+
+config/config.js
+
+```
+module.exports = {
+  secret: "yoursecretkey"
+}
+```
+
+
+config/database.js
+```
+module.exports = {
+    'connection': {
+        'host': 'localhost',
+        'user': 'user(root)',
+        'password': 'p@ssword'
+    },
+	'database': 'databaseName(wonki)',
+    'users_table': 'users'
+};
 ```
