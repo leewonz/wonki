@@ -7,6 +7,10 @@ WONKI: wonderful keeper of your inspirations
 
 ## Getting started
 
+```
+npm install
+```
+
 **create table named users**
 ```
 CREATE TABLE users ( 
