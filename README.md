@@ -7,7 +7,7 @@ WONKI: wonderful keeper of your inspirations
 
 ## Getting started
 
-**create users table**
+**create table named users**
 ```
 CREATE TABLE users ( 
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, 
