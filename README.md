@@ -1,5 +1,5 @@
 # wonki
-WONKI: wonderful keeper for your impressions
+WONKI: wonderful keeper of your inspirations
 
 원기와 함께하는 즐거운 1일 펫프로젝트~
 이름 지은사람 천재?
@@ -7,7 +7,11 @@ WONKI: wonderful keeper for your impressions
 
 ## Getting started
 
-**create users table**
+```
+npm install
+```
+
+**create table named users**
 ```
 CREATE TABLE users ( 
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, 
