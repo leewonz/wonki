@@ -1,4 +1,15 @@
 var express = require('express');
+/********************************************/
+var LocalStrategy   = require('passport-local').Strategy;
+
+// load up the user model
+var mysql = require('mysql');
+var bcrypt = require('bcrypt-nodejs');
+var dbconfig = require('../config/database');
+var connection = mysql.createConnection(dbconfig.connection);
+
+connection.query('USE ' + dbconfig.database);
+/******************************************/
 module.exports = function(app, passport) {
 
   /* GET home page. */
@@ -17,6 +28,24 @@ module.exports = function(app, passport) {
     res.render('write', { title: 'Express' });
   });
 
+  var contents_test = 'hellowonki';
+  app.get('/submit', function(req, res){
+  var sqlQuery = "INSERT INTO posts SET ?";
+        var post = {UserID : req.user.username, Contents : contents_test, Date :  20170523};
+        var query = connection.query(sqlQuery, post, function (err, result) {
+          if (err) throw err;
+          console.log("1 record inserted");
+        });
+     });
+
+   app.get('/test', function(req, res){
+         connection.query('SELECT * from posts', function(err, rows) {
+           if(err) throw err;
+
+           console.log('The solution is: ', rows);
+           res.send(rows);//실질적으로 웹페이지에 보내는 줄
+         });
+      });
 
 
 
